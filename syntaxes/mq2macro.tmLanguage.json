@@ -1043,15 +1043,22 @@
 				"1": { "name": "support.function.alert.mq2macro" },
 				"2": { "patterns": [
 						{
-							"match": "(?i)(?<=\\/nav)\\s+(?i)(wp)\\s*(\\b[ :_[:alnum:]]+)\\b([^\\n\\r]*)",
+							"match": "(?i)(?<=\\/nav)\\s+(wp)\\s*(\\b[ :_[:alnum:]]+)\\b",
 							"captures": { 
 								"1": {"name": "keyword.control.alert.mq2macro"},
-								"2": {"name": "string.unquoted.mq2macro"}
+								"2": {"patterns": [{"include": "#spacedelimiter"},{"include": "#variabledelimiter"},{"include": "#invalid-illegalcharacter"}]}
 							}
 						},
 						{"include": "#spacedelimiter"}
 					]
 				}
+			}
+		},
+		"mq2twist-slashcommand-unsupported": {
+			"match": "(?i)\\b(twist)\\b([^\\n\\r\\|]*)",
+			"captures": {
+				"1": { "name": "support.function.alert.mq2macro" },
+				"2": {"patterns": [{"include": "#spacedelimiter"},{"include": "#invalid-illegalcharacter"}]}
 			}
 		},
 		"eqslashcommand-unsupported": {

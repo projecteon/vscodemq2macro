@@ -168,7 +168,7 @@
 			"captures": {
 				"0": { "name": "invalid.illegal.mq2macro" }
 			}
-	},
+		},
 		"sub": {
 			"name": "meta.sub.mq2macro",
 			"begin": "^\\s*((?i)Sub)\\s+((?i)Event_)?([_[:alpha:]][_[:alnum:]]*)(\\([^\\)\\|]*\\))?",
@@ -249,6 +249,7 @@
 				{ "include": "#eqslashcommand-unsupported"},
 				{ "include": "#mq2eqbc-slashcommand-unsupported"},
 				{ "include": "#mq2cast-slashcommand-unsupported"},
+				{ "include": "#mq2nav-slashcommand-unsupported"},
 				{ "include": "#mq2slashcommand-ifblock"},
 				{ "include": "#mq2slashcommand-elseif" },
 				{ "include": "#mq2slashcommand-forblock"},
@@ -1034,6 +1035,23 @@
 			"captures": {
 				"1": { "name": "support.function.alert.mq2macro" },
 				"2": {"patterns": [{"include": "#spacedelimiter"},{"include": "#invalid-illegalcharacter"}]}
+			}
+		},
+		"mq2nav-slashcommand-unsupported": {
+			"match": "(?i)\\b(nav)\\b([^\\n\\r]*)",
+			"captures": {
+				"1": { "name": "support.function.alert.mq2macro" },
+				"2": { "patterns": [
+						{
+							"match": "(?i)(?<=\\/nav)\\s+(?i)(wp)\\s*(\\b[ :_[:alnum:]]+)\\b([^\\n\\r]*)",
+							"captures": { 
+								"1": {"name": "keyword.control.alert.mq2macro"},
+								"2": {"name": "string.unquoted.mq2macro"}
+							}
+						},
+						{"include": "#spacedelimiter"}
+					]
+				}
 			}
 		},
 		"eqslashcommand-unsupported": {

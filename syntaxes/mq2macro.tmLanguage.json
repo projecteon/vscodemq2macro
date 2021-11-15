@@ -1043,13 +1043,21 @@
 				"1": { "name": "support.function.alert.mq2macro" },
 				"2": { "patterns": [
 						{
-							"match": "(?i)(?<=\\/nav)\\s+(wp)\\s*(\\b[ :_[:alnum:]]+)\\b",
-							"captures": { 
-								"1": {"name": "keyword.control.alert.mq2macro"},
-								"2": {"patterns": [{"include": "#spacedelimiter"},{"include": "#variabledelimiter"},{"include": "#invalid-illegalcharacter"}]}
-							}
+							"begin": "(?i)(?<=\\/nav)\\s+(wp|id)",
+							"beginCaptures": { 
+								"1": {"name": "string.unquoted.mq2macro"}
+							},
+							"end": "(?=$)",
+							"patterns": [
+								{"include": "#variabledelimiter"}
+							]
 						},
-						{"include": "#spacedelimiter"}
+						{
+							"match": "(?i)(?<=\\/nav)\\s+(stop|pause)",
+							"captures": { 
+								"1": {"name": "string.unquoted.mq2macro"}
+							}
+						}
 					]
 				}
 			}

@@ -249,6 +249,7 @@
 				{ "include": "#eqslashcommand-unsupported"},
 				{ "include": "#mq2eqbc-slashcommand-unsupported"},
 				{ "include": "#mq2cast-slashcommand-unsupported"},
+				{ "include": "#mq2netadvpath-slashcommand-unsupported"},
 				{ "include": "#mq2nav-slashcommand-unsupported"},
 				{ "include": "#mq2slashcommand-ifblock"},
 				{ "include": "#mq2slashcommand-elseif" },
@@ -1036,6 +1037,21 @@
 			"captures": {
 				"1": { "name": "support.function.alert.mq2macro" },
 				"2": {"patterns": [{"include": "#spacedelimiter"},{"include": "#invalid-illegalcharacter"}]}
+			}
+		},
+		"mq2netadvpath-slashcommand-unsupported": {
+			"match": "(?i)\\b(netfollow)\\b([^\\n\\r\\|]*)",
+			"captures": {
+				"1": { "name": "support.function.alert.mq2macro" },
+				"2": {"patterns": [
+						{
+							"match": "(?i)(?<=\\/netfollow)\\s+(on|off|stop|pause|unpause|resume|clear)",
+							"captures": { 
+								"1": {"name": "string.unquoted.mq2macro"}
+							}
+						}
+					]
+				}
 			}
 		},
 		"mq2nav-slashcommand-unsupported": {

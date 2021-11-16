@@ -1075,10 +1075,13 @@
 							}
 						},
 						{
-							"match": "(?i)(?<=\\/twist)\\s+(hold)(\\s+\\d)",
+							"match": "(?i)(?<=\\/twist)\\s+(hold)\\b\\s*(([0-9]+)|((?<yb>\\s*\\${(?:[^\\$}]|\\g<yb>)+}\\s*)))\\s*([^|]*)",
 							"captures": { 
 								"1": {"name": "string.unquoted.mq2macro"},
-								"2": {"name": "constant.numeric.int.mq2macro"}
+								"3": { "name": "constant.numeric.int.mq2macro" },
+								"4": {"patterns": [
+									{"include": "#variabledelimiter"}
+								]}
 							}
 						},
 						{

@@ -249,6 +249,7 @@
 				{ "include": "#eqslashcommand-unsupported"},
 				{ "include": "#mq2eqbc-slashcommand-unsupported"},
 				{ "include": "#mq2cast-slashcommand-unsupported"},
+				{ "include": "#mq2advpath-slashcommand-unsupported"},
 				{ "include": "#mq2netadvpath-slashcommand-unsupported"},
 				{ "include": "#mq2nav-slashcommand-unsupported"},
 				{ "include": "#mq2slashcommand-ifblock"},
@@ -1046,6 +1047,31 @@
 				"2": {"patterns": [
 						{
 							"match": "(?i)(?<=\\/netfollow)\\s+(on|off|stop|pause|unpause|resume|clear)",
+							"captures": { 
+								"1": {"name": "string.unquoted.mq2macro"}
+							}
+						}
+					]
+				}
+			}
+		},
+		"mq2advpath-slashcommand-unsupported": {
+			"match": "(?i)\\b(afollow)\\b([^\\n\\r]*)",
+			"captures": {
+				"1": { "name": "support.function.alert.mq2macro" },
+				"2": { "patterns": [
+						{
+							"begin": "(?i)(?<=\\/afollow)\\s+(spawn)",
+							"beginCaptures": { 
+								"1": {"name": "string.unquoted.mq2macro"}
+							},
+							"end": "(?=$)",
+							"patterns": [
+								{"include": "#variabledelimiter"}
+							]
+						},
+						{
+							"match": "(?i)(?<=\\/afollow)\\s+(on|off|pause)",
 							"captures": { 
 								"1": {"name": "string.unquoted.mq2macro"}
 							}

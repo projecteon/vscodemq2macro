@@ -247,6 +247,7 @@
 				{ "include": "#mq2slashcommand-unsupported"},
 				{ "include": "#mq2slashcommand-windowstate"},
 				{ "include": "#eqslashcommand-unsupported"},
+				{ "include": "#mq2moveutils-slashcommand-unsupported"},
 				{ "include": "#mq2eqbc-slashcommand-unsupported"},
 				{ "include": "#mq2cast-slashcommand-unsupported"},
 				{ "include": "#mq2advpath-slashcommand-unsupported"},
@@ -1020,7 +1021,14 @@
 			}
 		},
 		"mq2slashcommand-unsupported": {
-			"match": "(?i)\\b(stick)\\b([^\\n\\r\\|]*)",
+			"match": "(?i)\\b(notify|itemnotify)\\b([^\\n\\r\\|]*)",
+			"captures": {
+				"1": { "name": "support.function.alert.mq2macro" },
+				"2": {"patterns": [{"include": "#spacedelimiter"},{"include": "#invalid-illegalcharacter"}]}
+			}
+		},
+		"mq2moveutils-slashcommand-unsupported": {
+			"match": "(?i)\\b(stick|makecamp|moveto)\\b([^\\n\\r\\|]*)",
 			"captures": {
 				"1": { "name": "support.function.alert.mq2macro" },
 				"2": {"patterns": [{"include": "#spacedelimiter"},{"include": "#invalid-illegalcharacter"}]}

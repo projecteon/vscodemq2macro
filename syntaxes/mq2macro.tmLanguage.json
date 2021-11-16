@@ -261,35 +261,36 @@
 			"captures": {
 				"1": { "name": "keyword.control.alert.mq2macro" },
 				"2": { "patterns": [
-					{
-						"match": "(?<=\\/aa )\\blist (all|timers)\\b",
-						"captures": { "0": {"name": "keyword.control.alert.mq2macro"}}
-					},
-					{
-						"match": "(?<=\\/aa )\\b(info|act)\\b\\s*((?<vb>\\s*\\${(?:[^\\$}]|\\g<vb>)+}\\s*))",
-						"captures": { 
-							"1": {"name": "keyword.control.alert.mq2macro"},
-							"2": {"patterns": [
-								{"include": "#variabledelimiter"}
-							]}
-						}
-					},
-					{
-						"match": "(?<=\\/aa )\\b(info|act)\\b\\s*([0-9]+)",
-						"captures": { 
-							"1": {"name": "keyword.control.alert.mq2macro"},
-							"2": {"name": "constant.numeric.mq2macro"}
-						}
-					},
-					{
-						"match": "(?<=\\/aa )\\b(info|act)\\b\\s*(\\b[ :_[:alnum:]]+)",
-						"captures": { 
-							"1": {"name": "keyword.control.alert.mq2macro"},
-							"2": {"name": "string.unquoted.mq2macro"}
-						}
-					},
-					{ "include": "#invalid-illegalcharacters" }
-					]}
+						{
+							"match": "(?<=\\/aa )\\blist (all|timers)\\b",
+							"captures": { "0": {"name": "keyword.control.alert.mq2macro"}}
+						},
+						{
+							"match": "(?<=\\/aa )\\b(info|act)\\b\\s*((?<vb>\\s*\\${(?:[^\\$}]|\\g<vb>)+}\\s*))",
+							"captures": { 
+								"1": {"name": "keyword.control.alert.mq2macro"},
+								"2": {"patterns": [
+									{"include": "#variabledelimiter"}
+								]}
+							}
+						},
+						{
+							"match": "(?<=\\/aa )\\b(info|act)\\b\\s*([0-9]+)",
+							"captures": { 
+								"1": {"name": "keyword.control.alert.mq2macro"},
+								"2": {"name": "constant.numeric.mq2macro"}
+							}
+						},
+						{
+							"match": "(?<=\\/aa )\\b(info|act)\\b\\s*(\\b[ :_[:alnum:]]+)",
+							"captures": { 
+								"1": {"name": "keyword.control.alert.mq2macro"},
+								"2": {"name": "string.unquoted.mq2macro"}
+							}
+						},
+						{ "include": "#invalid-illegalcharacters" }
+					]
+				}
 			}
 		},
 		"mq2slashcommand-alert": {
@@ -1068,12 +1069,9 @@
 				"1": { "name": "support.function.alert.mq2macro" },
 				"2": {"patterns": [
 						{
-							"match": "(?i)(?<=\\/twist)(\\s+\\d)(\\s+\\d)?(\\s+\\d)?(\\s+\\d)?",
+							"match": "(?i)(?<=\\/twist)\\s+(start|on|stop|end|off|clear)",
 							"captures": { 
-								"1": {"name": "constant.numeric.int.mq2macro"},
-								"2": {"name": "constant.numeric.int.mq2macro"},
-								"3": {"name": "constant.numeric.int.mq2macro"},
-								"4": {"name": "constant.numeric.int.mq2macro"}
+								"1": {"name": "string.unquoted.mq2macro"}
 							}
 						},
 						{
@@ -1084,9 +1082,24 @@
 							}
 						},
 						{
-							"match": "(?i)(?<=\\/twist)\\s+(start|on|stop|end|off|clear)",
+							"match": "(?i)(?<=\\/twist)\\b\\s*(([0-9]+)|((?<vb>\\s*\\${(?:[^\\$}]|\\g<vb>)+}\\s*)))(\\b\\s*(([0-9]+)|((?<wb>\\s*\\${(?:[^\\$}]|\\g<wb>)+}\\s*))))?(\\b\\s*(([0-9]+)|((?<xb>\\s*\\${(?:[^\\$}]|\\g<xb>)+}\\s*))))?(\\b\\s*(([0-9]+)|((?<yb>\\s*\\${(?:[^\\$}]|\\g<yb>)+}\\s*))))?\\s*([^|]*)",
 							"captures": { 
-								"1": {"name": "string.unquoted.mq2macro"}
+								"2": { "name": "constant.numeric.int.mq2macro" },
+								"3": {"patterns": [
+									{"include": "#variabledelimiter"}
+								]},
+								"7": { "name": "constant.numeric.int.mq2macro" },
+								"8": {"patterns": [
+									{"include": "#variabledelimiter"}
+								]},
+								"12": { "name": "constant.numeric.int.mq2macro" },
+								"13": {"patterns": [
+									{"include": "#variabledelimiter"}
+								]},
+								"17": { "name": "constant.numeric.int.mq2macro" },
+								"18": {"patterns": [
+									{"include": "#variabledelimiter"}
+								]}
 							}
 						}
 					]

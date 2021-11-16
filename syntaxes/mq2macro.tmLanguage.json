@@ -1066,7 +1066,31 @@
 			"match": "(?i)\\b(twist)\\b([^\\n\\r\\|]*)",
 			"captures": {
 				"1": { "name": "support.function.alert.mq2macro" },
-				"2": {"patterns": [{"include": "#spacedelimiter"},{"include": "#invalid-illegalcharacter"}]}
+				"2": {"patterns": [
+						{
+							"match": "(?i)(?<=\\/twist)(\\s+\\d)(\\s+\\d)?(\\s+\\d)?(\\s+\\d)?",
+							"captures": { 
+								"1": {"name": "constant.numeric.int.mq2macro"},
+								"2": {"name": "constant.numeric.int.mq2macro"},
+								"3": {"name": "constant.numeric.int.mq2macro"},
+								"4": {"name": "constant.numeric.int.mq2macro"}
+							}
+						},
+						{
+							"match": "(?i)(?<=\\/twist)\\s+(hold)(\\s+\\d)",
+							"captures": { 
+								"1": {"name": "string.unquoted.mq2macro"},
+								"2": {"name": "constant.numeric.int.mq2macro"}
+							}
+						},
+						{
+							"match": "(?i)(?<=\\/twist)\\s+(start|on|stop|end|off|clear)",
+							"captures": { 
+								"1": {"name": "string.unquoted.mq2macro"}
+							}
+						}
+					]
+				}
 			}
 		},
 		"eqslashcommand-unsupported": {

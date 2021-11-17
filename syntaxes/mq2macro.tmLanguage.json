@@ -250,10 +250,10 @@
 				{ "include": "#mq2moveutils-slashcommand-unsupported"},
 				{ "include": "#mq2eqbc-slashcommand-unsupported"},
 				{ "include": "#mq2cast-slashcommand-unsupported"},
-				{ "include": "#mq2advpath-slashcommand-unsupported"},
-				{ "include": "#mq2netadvpath-slashcommand-unsupported"},
-				{ "include": "#mq2nav-slashcommand-unsupported"},
-				{ "include": "#mq2twist-slashcommand-unsupported"},
+				{ "include": "#mq2advpath-slashcommand-partially-supported"},
+				{ "include": "#mq2netadvpath-slashcommand-partially-supported"},
+				{ "include": "#mq2nav-slashcommand-partially-supported"},
+				{ "include": "#mq2twist-slashcommand-partially-supported"},
 				{ "include": "#mq2slashcommand-ifblock"},
 				{ "include": "#mq2slashcommand-elseif" },
 				{ "include": "#mq2slashcommand-forblock"},
@@ -1049,7 +1049,7 @@
 				"2": {"patterns": [{"include": "#spacedelimiter"},{"include": "#invalid-illegalcharacter"}]}
 			}
 		},
-		"mq2netadvpath-slashcommand-unsupported": {
+		"mq2netadvpath-slashcommand-partially-supported": {
 			"match": "(?i)\\b(netfollow)\\b([^\\n\\r\\|]*)",
 			"captures": {
 				"1": { "name": "support.function.alert.mq2macro" },
@@ -1064,7 +1064,7 @@
 				}
 			}
 		},
-		"mq2advpath-slashcommand-unsupported": {
+		"mq2advpath-slashcommand-partially-supported": {
 			"match": "(?i)\\b(afollow)\\b([^\\n\\r]*)",
 			"captures": {
 				"1": { "name": "support.function.alert.mq2macro" },
@@ -1089,7 +1089,7 @@
 				}
 			}
 		},
-		"mq2nav-slashcommand-unsupported": {
+		"mq2nav-slashcommand-partially-supported": {
 			"match": "(?i)\\b(nav)\\b([^\\n\\r]*)",
 			"captures": {
 				"1": { "name": "support.function.alert.mq2macro" },
@@ -1114,7 +1114,7 @@
 				}
 			}
 		},
-		"mq2twist-slashcommand-unsupported": {
+		"mq2twist-slashcommand-partially-supported": {
 			"match": "(?i)\\b(twist)\\b([^\\n\\r\\|]*)",
 			"captures": {
 				"1": { "name": "support.function.alert.mq2macro" },

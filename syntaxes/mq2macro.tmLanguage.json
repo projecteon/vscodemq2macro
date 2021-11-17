@@ -712,22 +712,22 @@
 				"1": { "name": "keyword.control.alert.mq2macro" },
 				"2": {"patterns": [
 						{
-							"match": "(?i)(?<=\\/face)(\\b\\s*((away|fast|nolook|predict)|((?<wb>\\s*\\${(?:[^\\$}]|\\g<wb>)+}))))?(\\b\\s*((away|fast|nolook|predict)|((?<xb>\\s*\\${(?:[^\\$}]|\\g<xb>)+}))))?(\\b\\s*((away|fast|nolook|predict)|((?<yb>\\s*\\${(?:[^\\$}]|\\g<yb>)+}))))?(\\b\\s*((away|fast|nolook|predict)|((?<zb>\\s*\\${(?:[^\\$}]|\\g<zb>)+}))))?\\s*(?=$)",
+							"match": "(?i)(?<=\\/face)(?<=\\/face)\\b\\s*((away|fast|nolook|predict)|((?<wb>\\s*\\${(?:[^\\$}]|\\g<wb>)+})))?\\b\\s*((away|fast|nolook|predict)|((?<xb>\\s*\\${(?:[^\\$}]|\\g<xb>)+})))?\\b\\s*((away|fast|nolook|predict)|((?<yb>\\s*\\${(?:[^\\$}]|\\g<yb>)+})))?\\b\\s*((away|fast|nolook|predict)|((?<zb>\\s*\\${(?:[^\\$}]|\\g<zb>)+})))?\\s*(?=$)",
 							"captures": { 
 								"2": { "name": "string.unquoted.mq2macro" },
 								"3": {"patterns": [
 									{"include": "#variabledelimiter"}
-								]},
-								"7": { "name": "string.unquoted.mq2macro" },
-								"8": {"patterns": [
+								]}, 
+								"6": { "name": "string.unquoted.mq2macro" },
+								"7": {"patterns": [
 									{"include": "#variabledelimiter"}
-								]},
-								"12": { "name": "string.unquoted.mq2macro" },
-								"13": {"patterns": [
+								]}, 
+								"10": { "name": "string.unquoted.mq2macro" },
+								"11": {"patterns": [
 									{"include": "#variabledelimiter"}
-								]},
-								"17": { "name": "string.unquoted.mq2macro" },
-								"18": {"patterns": [
+								]}, 
+								"14": { "name": "string.unquoted.mq2macro" },
+								"15": {"patterns": [
 									{"include": "#variabledelimiter"}
 								]}
 							}

@@ -232,6 +232,7 @@
 				{ "include": "#mq2slashcommand-delay"},
 				{ "include": "#mq2slashcommand-doevents" },
 				{ "include": "#mq2slashcommand-keypress" },
+				{ "include": "#mq2slashcommand-loadspells"},
 				{ "include": "#mq2slashcommand-mac"},
 				{ "include": "#mq2slashcommand-macro"},
 				{ "include": "#mq2slashcommand-mqlogclear"},
@@ -812,6 +813,25 @@
 				"30": { "patterns": [
 					{"include": "#comment"},
 					{"include": "#invalid-illegalcharacters"}						
+					]
+				}
+			}
+		},
+		"mq2slashcommand-loadspells": {
+			"match": "(?i)\\b(loadspells)\\b([^\\n\\r\\|]*)",
+			"captures": {
+				"1": { "name": "keyword.control.alert.mq2macro" },
+				"2": { "patterns": [
+						{
+							"begin": "(?i)(?<=\\/loadspells)(\\s+(list))?",
+							"beginCaptures": { 
+								"2": {"name": "string.unquoted.mq2macro"}
+							},
+							"end": "(?=$)",
+							"patterns": [
+								{"include": "#variabledelimiter"}
+							]
+						}
 					]
 				}
 			}

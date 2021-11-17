@@ -734,7 +734,7 @@
 							"end": "(?=$)",
 							"patterns": [
 								{
-									"match": "\\b\\s*(heading)\\b\\s*(([0-9]+)|((?<yb>\\s*\\${(?:[^\\$}]|\\g<yb>)+}\\s*)))\\s*",
+									"match": "\\b\\s*(alert|heading|id)\\b\\s*(([0-9]+)|((?<yb>\\s*\\${(?:[^\\$}]|\\g<yb>)+}\\s*)))\\s*",
 									"captures": {
 										"1": {"name": "string.unquoted.mq2macro"},
 										"3": { "name": "constant.numeric.int.mq2macro" },
@@ -742,6 +742,17 @@
 											{"include": "#variabledelimiter"}
 										]}
 									}
+								},
+								{
+									"match": "\\b\\s*(item|door)\\s*",
+									"captures": {
+										"1": {"name": "string.unquoted.mq2macro"},
+										"3": { "name": "constant.numeric.int.mq2macro" },
+										"4": {"patterns": [
+											{"include": "#variabledelimiter"}
+										]}
+									}
+
 								}	
 							]
 						}

@@ -1055,7 +1055,7 @@
 				"1": { "name": "support.function.alert.mq2macro" },
 				"2": {"patterns": [
 						{
-							"match": "(?i)(?<=\\/netfollow)\\s+(on|off|stop|pause|unpause|resume|clear)",
+							"match": "(?i)(?<=\\/netfollow)\\s+(on|off|stop|pause|unpause|resume|clear)\\s*(?=$)",
 							"captures": { 
 								"1": {"name": "string.unquoted.mq2macro"}
 							}
@@ -1080,7 +1080,7 @@
 							]
 						},
 						{
-							"match": "(?i)(?<=\\/afollow)\\s+(on|off|pause)",
+							"match": "(?i)(?<=\\/afollow)\\s+(on|off|pause)\\s*(?=$)",
 							"captures": { 
 								"1": {"name": "string.unquoted.mq2macro"}
 							}
@@ -1105,7 +1105,7 @@
 							]
 						},
 						{
-							"match": "(?i)(?<=\\/nav)\\s+(stop|pause)",
+							"match": "(?i)(?<=\\/nav)\\s+(stop|pause)\\s*(?=$)",
 							"captures": { 
 								"1": {"name": "string.unquoted.mq2macro"}
 							}
@@ -1120,13 +1120,13 @@
 				"1": { "name": "support.function.alert.mq2macro" },
 				"2": {"patterns": [
 						{
-							"match": "(?i)(?<=\\/twist)(\\s+(start|on|stop|end|off|clear))?",
+							"match": "(?i)(?<=\\/twist)(\\s+(start|on|stop|end|off|clear))?\\s*(?=$)",
 							"captures": { 
 								"2": {"name": "string.unquoted.mq2macro"}
 							}
 						},
 						{
-							"match": "(?i)(?<=\\/twist)\\s+(hold)\\b\\s*(([0-9]+)|((?<yb>\\s*\\${(?:[^\\$}]|\\g<yb>)+}\\s*)))\\s*([^|]*)",
+							"match": "(?i)(?<=\\/twist)\\s+(hold)\\b\\s*(([0-9]+)|((?<yb>\\s*\\${(?:[^\\$}]|\\g<yb>)+}\\s*)))\\s*(?=$)",
 							"captures": { 
 								"1": {"name": "string.unquoted.mq2macro"},
 								"3": { "name": "constant.numeric.int.mq2macro" },
@@ -1136,7 +1136,7 @@
 							}
 						},
 						{
-							"match": "(?i)(?<=\\/twist)\\b\\s*(([0-9]+)|((?<vb>\\s*\\${(?:[^\\$}]|\\g<vb>)+}\\s*)))(\\b\\s*(([0-9]+)|((?<wb>\\s*\\${(?:[^\\$}]|\\g<wb>)+}\\s*))))?(\\b\\s*(([0-9]+)|((?<xb>\\s*\\${(?:[^\\$}]|\\g<xb>)+}\\s*))))?(\\b\\s*(([0-9]+)|((?<yb>\\s*\\${(?:[^\\$}]|\\g<yb>)+}\\s*))))?\\s*([^|]*)",
+							"match": "(?i)(?<=\\/twist)\\b\\s*(([0-9]+)|((?<vb>\\s*\\${(?:[^\\$}]|\\g<vb>)+}\\s*)))(\\b\\s*(([0-9]+)|((?<wb>\\s*\\${(?:[^\\$}]|\\g<wb>)+}\\s*))))?(\\b\\s*(([0-9]+)|((?<xb>\\s*\\${(?:[^\\$}]|\\g<xb>)+}\\s*))))?(\\b\\s*(([0-9]+)|((?<yb>\\s*\\${(?:[^\\$}]|\\g<yb>)+}\\s*))))?\\s*(?=$)",
 							"captures": { 
 								"2": { "name": "constant.numeric.int.mq2macro" },
 								"3": {"patterns": [

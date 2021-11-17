@@ -712,25 +712,38 @@
 				"1": { "name": "keyword.control.alert.mq2macro" },
 				"2": {"patterns": [
 						{
-							"match": "(?i)(?<=\\/face)(?<=\\/face)\\b\\s*((away|fast|nolook|predict)|((?<wb>\\s*\\${(?:[^\\$}]|\\g<wb>)+})))?\\b\\s*((away|fast|nolook|predict)|((?<xb>\\s*\\${(?:[^\\$}]|\\g<xb>)+})))?\\b\\s*((away|fast|nolook|predict)|((?<yb>\\s*\\${(?:[^\\$}]|\\g<yb>)+})))?\\b\\s*((away|fast|nolook|predict)|((?<zb>\\s*\\${(?:[^\\$}]|\\g<zb>)+})))?\\s*(?=$)",
-							"captures": { 
-								"2": { "name": "string.unquoted.mq2macro" },
+							"begin": "(?i)(?<=\\/face)(?<=\\/face)\\b\\s*((away|fast|nolook|predict)|((?<wb>\\s*\\${(?:[^\\$}]|\\g<wb>)+})))?\\b\\s*((away|fast|nolook|predict)|((?<xb>\\s*\\${(?:[^\\$}]|\\g<xb>)+})))?\\b\\s*((away|fast|nolook|predict)|((?<yb>\\s*\\${(?:[^\\$}]|\\g<yb>)+})))?\\b\\s*((away|fast|nolook|predict)|((?<zb>\\s*\\${(?:[^\\$}]|\\g<zb>)+})))?",
+							"beginCaptures": { 
+								"2": { "name": "constant.language.mq2macro" },
 								"3": {"patterns": [
 									{"include": "#variabledelimiter"}
 								]}, 
-								"6": { "name": "string.unquoted.mq2macro" },
+								"6": { "name": "constant.language.mq2macro" },
 								"7": {"patterns": [
 									{"include": "#variabledelimiter"}
 								]}, 
-								"10": { "name": "string.unquoted.mq2macro" },
+								"10": { "name": "constant.language.mq2macro" },
 								"11": {"patterns": [
 									{"include": "#variabledelimiter"}
 								]}, 
-								"14": { "name": "string.unquoted.mq2macro" },
+								"14": { "name": "constant.language.mq2macro" },
 								"15": {"patterns": [
 									{"include": "#variabledelimiter"}
 								]}
-							}
+							},
+							"end": "(?=$)",
+							"patterns": [
+								{
+									"match": "\\b\\s*(heading)\\b\\s*(([0-9]+)|((?<yb>\\s*\\${(?:[^\\$}]|\\g<yb>)+}\\s*)))\\s*",
+									"captures": {
+										"1": {"name": "string.unquoted.mq2macro"},
+										"3": { "name": "constant.numeric.int.mq2macro" },
+										"4": {"patterns": [
+											{"include": "#variabledelimiter"}
+										]}
+									}
+								}	
+							]
 						}
 					]
 				}

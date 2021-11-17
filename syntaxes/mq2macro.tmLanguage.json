@@ -1044,7 +1044,7 @@
 		"mq2slashcommand-unsupported": {
 			"match": "(?i)\\b(notify|itemnotify)\\b([^\\n\\r\\|]*)",
 			"captures": {
-				"1": { "name": "support.function.alert.mq2macro" },
+				"1": { "name": "keyword.control.alert.mq2macro" },
 				"2": {"patterns": [{"include": "#spacedelimiter"},{"include": "#invalid-illegalcharacter"}]}
 			}
 		},

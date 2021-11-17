@@ -253,6 +253,7 @@
 				{ "include": "#mq2advpath-slashcommand-unsupported"},
 				{ "include": "#mq2netadvpath-slashcommand-unsupported"},
 				{ "include": "#mq2nav-slashcommand-unsupported"},
+				{ "include": "#mq2twist-slashcommand-unsupported"},
 				{ "include": "#mq2slashcommand-ifblock"},
 				{ "include": "#mq2slashcommand-elseif" },
 				{ "include": "#mq2slashcommand-forblock"},
@@ -1119,9 +1120,9 @@
 				"1": { "name": "support.function.alert.mq2macro" },
 				"2": {"patterns": [
 						{
-							"match": "(?i)(?<=\\/twist)\\s+(start|on|stop|end|off|clear)",
+							"match": "(?i)(?<=\\/twist)(\\s+(start|on|stop|end|off|clear))?",
 							"captures": { 
-								"1": {"name": "string.unquoted.mq2macro"}
+								"2": {"name": "string.unquoted.mq2macro"}
 							}
 						},
 						{

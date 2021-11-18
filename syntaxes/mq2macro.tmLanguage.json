@@ -231,6 +231,7 @@
 				{ "include": "#mq2slashcommand-deletevar"},
 				{ "include": "#mq2slashcommand-delay"},
 				{ "include": "#mq2slashcommand-doevents" },
+				{ "include": "#mq2slashcommand-face" },
 				{ "include": "#mq2slashcommand-keypress" },
 				{ "include": "#mq2slashcommand-loadspells"},
 				{ "include": "#mq2slashcommand-mac"},
@@ -711,6 +712,74 @@
 				{ "include": "#variabledelimiter"},
 				{ "include": "#echosubstring"}
 			]
+		},
+		"mq2slashcommand-face": {
+			"match": "(?i)\\b(face)\\b([^\\n\\r\\|]*)",
+			"captures": {
+				"1": { "name": "keyword.control.alert.mq2macro" },
+				"2": {"patterns": [
+						{
+							"begin": "(?i)(?<=\\/face)(?<=\\/face)\\b\\s*((away|fast|nolook|predict)|((?<wb>\\s*\\${(?:[^\\$}]|\\g<wb>)+})))?\\b\\s*((away|fast|nolook|predict)|((?<xb>\\s*\\${(?:[^\\$}]|\\g<xb>)+})))?\\b\\s*((away|fast|nolook|predict)|((?<yb>\\s*\\${(?:[^\\$}]|\\g<yb>)+})))?\\b\\s*((away|fast|nolook|predict)|((?<zb>\\s*\\${(?:[^\\$}]|\\g<zb>)+})))?",
+							"beginCaptures": { 
+								"2": { "name": "constant.language.mq2macro" },
+								"3": {"patterns": [
+									{"include": "#variabledelimiter"}
+								]}, 
+								"6": { "name": "constant.language.mq2macro" },
+								"7": {"patterns": [
+									{"include": "#variabledelimiter"}
+								]}, 
+								"10": { "name": "constant.language.mq2macro" },
+								"11": {"patterns": [
+									{"include": "#variabledelimiter"}
+								]}, 
+								"14": { "name": "constant.language.mq2macro" },
+								"15": {"patterns": [
+									{"include": "#variabledelimiter"}
+								]}
+							},
+							"end": "(?=$)",
+							"patterns": [
+								{
+									"match": "\\b\\s*(alert|heading|id)\\b\\s*(([0-9]+)|((?<yb>\\s*\\${(?:[^\\$}]|\\g<yb>)+}\\s*)))\\s*",
+									"captures": {
+										"1": {"name": "string.unquoted.mq2macro"},
+										"3": { "name": "constant.numeric.int.mq2macro" },
+										"4": {"patterns": [
+											{"include": "#variabledelimiter"}
+										]}
+									}
+								},
+								{
+									"match": "\\b\\s*(loc)\\b\\s*(([0-9]+)|((?<yb>\\${(?:[^\\$}]|\\g<yb>)+})))(,)(([0-9]+)|((?<xb>\\${(?:[^\\$}]|\\g<xb>)+})))((,)(([0-9]+)|((?<zb>\\${(?:[^\\$}]|\\g<zb>)+}))))?\\s*",
+									"captures": {
+										"1": { "name": "string.unquoted.mq2macro" },
+										"3": { "name": "constant.numeric.int.mq2macro" },
+										"4": { "patterns": [ { "include": "#variabledelimiter" } ]}, 
+										"6": { "name": "keyword.operator.mq2macro" },
+										"8": { "name": "constant.language.mq2macro" },
+										"9": { "patterns": [ { "include": "#variabledelimiter" } ]}, 
+										"12": { "name": "keyword.operator.mq2macro" },
+										"14": { "name": "constant.language.mq2macro" },
+										"15": { "patterns": [ { "include": "#variabledelimiter" } ]}
+									}
+								},
+								{
+									"match": "\\b\\s*(item|door)\\s*",
+									"captures": {
+										"1": {"name": "string.unquoted.mq2macro"},
+										"3": { "name": "constant.numeric.int.mq2macro" },
+										"4": {"patterns": [
+											{"include": "#variabledelimiter"}
+										]}
+									}
+
+								}	
+							]
+						}
+					]
+				}
+			}
 		},
 		"mq2slashcommand-mqlogclear": {
 			"match": "(?i)(mqlog\\s+clear)\\b",
